@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.PrintersComboBox = new System.Windows.Forms.ComboBox();
-            this.PrinterSettingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.PrinterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PrinterSettingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.printerLabel = new System.Windows.Forms.Label();
             this.SettingsComboBox = new System.Windows.Forms.ComboBox();
             this.settingsLabel = new System.Windows.Forms.Label();
@@ -40,8 +40,8 @@
             this.FilamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.MaxBuildXTextBox = new System.Windows.Forms.TextBox();
             this.MaxBuildXLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.PrinterSettingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrinterBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrinterSettingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FilamentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,14 +57,14 @@
             this.PrintersComboBox.TabIndex = 0;
             this.PrintersComboBox.SelectedIndexChanged += new System.EventHandler(this.PrintersComboBox_SelectedIndexChanged);
             // 
-            // PrinterSettingBindingSource
-            // 
-            this.PrinterSettingBindingSource.DataSource = typeof(SlicerConf.Data.PrinterSetting);
-            // 
             // PrinterBindingSource
             // 
             this.PrinterBindingSource.DataSource = typeof(SlicerConf.Data.Printer);
             this.PrinterBindingSource.CurrentChanged += new System.EventHandler(this.PrinterBindingSource_CurrentChanged);
+            // 
+            // PrinterSettingBindingSource
+            // 
+            this.PrinterSettingBindingSource.DataSource = typeof(SlicerConf.Data.PrinterSetting);
             // 
             // printerLabel
             // 
@@ -155,8 +155,8 @@
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PrinterSettingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrinterBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrinterSettingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FilamentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
