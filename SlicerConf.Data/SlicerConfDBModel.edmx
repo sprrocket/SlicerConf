@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="SlicerConfDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="SlicerConfDBModelTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SlicerConfDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="SlicerConfDBModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Printers" EntityType="SlicerConfDBModel.Printer" />
+          <EntitySet Name="PrinterSettings" EntityType="SlicerConfDBModel.PrinterSetting" />
+          <EntitySet Name="Filaments" EntityType="SlicerConfDBModel.Filament" />
+          <EntitySet Name="Pictures" EntityType="SlicerConfDBModel.Picture" />
+          <AssociationSet Name="PrinterPrinterSetting" Association="SlicerConfDBModel.PrinterPrinterSetting">
+            <End Role="Printer" EntitySet="Printers" />
+            <End Role="PrinterSetting" EntitySet="PrinterSettings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Printer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="MaxBuildX" Type="String" Nullable="false" />
+          <Property Name="MaxBuildY" Type="String" Nullable="false" />
+          <Property Name="MaxBuildZ" Type="String" Nullable="false" />
+          <NavigationProperty Name="PrinterSettings" Relationship="SlicerConfDBModel.PrinterPrinterSetting" FromRole="Printer" ToRole="PrinterSetting" />
+        </EntityType>
+        <EntityType Name="PrinterSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="LayerHeight" Type="String" Nullable="false" />
+          <Property Name="Perimeters" Type="String" Nullable="false" />
+          <Property Name="TopShells" Type="String" Nullable="false" />
+          <Property Name="BottomShells" Type="String" Nullable="false" />
+          <NavigationProperty Name="Printer" Relationship="SlicerConfDBModel.PrinterPrinterSetting" FromRole="PrinterSetting" ToRole="Printer" />
+          <Property Name="PrinterId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Filament">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="PrintTemperature" Type="String" Nullable="false" />
+          <Property Name="HeatbedEnabled" Type="String" Nullable="false" />
+          <Property Name="HeatbedTemperature" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="img" Type="Binary" Nullable="false" />
+        </EntityType>
+        <Association Name="PrinterPrinterSetting">
+          <End Type="SlicerConfDBModel.Printer" Role="Printer" Multiplicity="1" />
+          <End Type="SlicerConfDBModel.PrinterSetting" Role="PrinterSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Printer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PrinterSetting">
+              <PropertyRef Name="PrinterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="SlicerConfDBModel" />
+        <Alias Key="Target" Value="SlicerConfDBModel.Store" />
+        <EntityContainerMapping CdmEntityContainer="SlicerConfDBModelContainer" StorageEntityContainer="SlicerConfDBModelTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
