@@ -82,11 +82,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SlicerConf.Data.Filament.datasource" />
+    <None Include="SlicerConf.Data.Printer.datasource" />
+    <None Include="SlicerConf.Data.PrinterSetting.datasource" />
+    <None Include="SlicerConf.Data.SlicerConfDBModelContainer.datasource" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SlicerConf.Biz\SlicerConf.Biz.csproj">
+      <Project>{ba00ec15-94a5-4a84-ae26-6b69b97a6a88}</Project>
+      <Name>SlicerConf.Biz</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SlicerConf.Data\SlicerConf.Data.csproj">
       <Project>{e201be6f-4fa1-44fc-a02c-22ddfa91cddf}</Project>
       <Name>SlicerConf.Data</Name>

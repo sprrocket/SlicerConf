@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlicerConf.Data", "SlicerCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlicerConf.ConsoleApp", "SlicerConf.ConsoleApp\SlicerConf.ConsoleApp.csproj", "{CD51221E-65FB-4778-953E-2EA02CDBD85A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlicerConf.Biz", "SlicerConf.Biz\SlicerConf.Biz.csproj", "{BA00EC15-94A5-4A84-AE26-6B69B97A6A88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CD51221E-65FB-4778-953E-2EA02CDBD85A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD51221E-65FB-4778-953E-2EA02CDBD85A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD51221E-65FB-4778-953E-2EA02CDBD85A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA00EC15-94A5-4A84-AE26-6B69B97A6A88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA00EC15-94A5-4A84-AE26-6B69B97A6A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA00EC15-94A5-4A84-AE26-6B69B97A6A88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA00EC15-94A5-4A84-AE26-6B69B97A6A88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

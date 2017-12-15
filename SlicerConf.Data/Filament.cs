@@ -18,6 +18,6 @@ namespace SlicerConf.Data
         public string Name { get; set; }
         public int PrintTemperature { get; set; }
         public bool HeatbedEnabled { get; set; }
-        public int HeatbedTemperature { get; set; }
+        public Nullable<int> HeatbedTemperature { get; set; }
     }
 }
