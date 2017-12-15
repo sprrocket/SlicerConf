@@ -11,6 +11,21 @@
     <AssemblyName>SlicerConf.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,9 +64,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data.cs" />
+    <Compile Include="dbHelper.cs" />
+    <Compile Include="Filament.cs">
+      <DependentUpon>SlicerConfDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Picture.cs">
+      <DependentUpon>SlicerConfDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Printer.cs">
+      <DependentUpon>SlicerConfDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterSetting.cs">
+      <DependentUpon>SlicerConfDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SlicerConfDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SlicerConfDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SlicerConfDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SlicerConfDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="SlicerConfDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SlicerConfDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SlicerConfDBModel1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SlicerConfDBModel.edmx</DependentUpon>
@@ -62,11 +104,39 @@
     <None Include="packages.config" />
     <EntityDeploy Include="SlicerConfDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SlicerConfDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>SlicerConfDBModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="SlicerConfDBModel.edmx.diagram">
       <DependentUpon>SlicerConfDBModel.edmx</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NEWSlicerConfDBModel.edmx.sql" />
+    <Content Include="SlicerConfDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SlicerConfDB.Context.cs</LastGenOutput>
+      <DependentUpon>SlicerConfDBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="SlicerConfDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SlicerConfDB.cs</LastGenOutput>
+      <DependentUpon>SlicerConfDBModel.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
