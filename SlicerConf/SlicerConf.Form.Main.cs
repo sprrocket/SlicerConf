@@ -22,19 +22,16 @@ namespace SlicerConf
 
         private void PopulateSettingsComboBox()
         {
-            //I'M SO SMART FOR THIS
-            //IT READS THE PRINTER DROPDOWN
-            //AND SELECTS ONLY THE PRINTERSETTINGS WITH MATCHING ID'S
-            //asdjfkaljsdfkjasdlkfjafs
+            int currentId = ((Data.Printer)PrinterBindingSource.Current).Id;
             PrinterSettingBindingSource.DataSource = (from setting in ctx.PrinterSettings
-                                                      where setting.PrinterId == ctx.Printers.Where(p => p.Name == PrintersComboBox.Text).FirstOrDefault().Id
+                                                      where setting.PrinterId == currentId
                                                       select setting).ToList();
         }
 
         private void PrintersComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            PopulateSettingsComboBox();
+            
         }
 
         private void SettingsComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,6 +41,7 @@ namespace SlicerConf
 
         private void PrinterBindingSource_CurrentChanged(object sender, EventArgs e)
         {
+            PopulateSettingsComboBox();
             ctx.SaveChanges();
         }
 
@@ -57,7 +55,7 @@ namespace SlicerConf
 
             PrinterBindingSource.DataSource = ctx.Printers.Local.ToBindingList();//The right-hand expression: DbContext<POCO<ObservableList<BindingList
             FilamentBindingSource.DataSource = ctx.Filaments.Local.ToBindingList();
-            PopulateSettingsComboBox();
+            //PopulateSettingsComboBox();
             
             
 
