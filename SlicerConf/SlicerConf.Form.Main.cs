@@ -17,13 +17,15 @@ namespace SlicerConf
         SlicerConf.Data.SlicerConfDBModelContainer ctx = new Data.SlicerConfDBModelContainer();
         public MainForm()
         {
-
             InitializeComponent();
-
         }
 
         private void PopulateSettingsComboBox()
         {
+            //I'M SO SMART FOR THIS
+            //IT READS THE PRINTER DROPDOWN
+            //AND SELECTS ONLY THE PRINTERSETTINGS WITH MATCHING ID'S
+            //asdjfkaljsdfkjasdlkfjafs
             PrinterSettingBindingSource.DataSource = (from setting in ctx.PrinterSettings
                                                       where setting.PrinterId == ctx.Printers.Where(p => p.Name == PrintersComboBox.Text).FirstOrDefault().Id
                                                       select setting).ToList();
