@@ -14,7 +14,7 @@ namespace SlicerConf
 {
     public partial class MainForm : Form
     {
-        SlicerConf.Data.SlicerConfDBModelContainer ctx = new Data.SlicerConfDBModelContainer();
+        Data.SlicerConfDBModelContainer ctx = new Data.SlicerConfDBModelContainer();
         public MainForm()
         {
             InitializeComponent();
