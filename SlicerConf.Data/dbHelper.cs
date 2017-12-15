@@ -24,5 +24,6 @@ namespace SlicerConf.Data
                                                 select p;
             return printersQuery;
         }
+
     }
 }

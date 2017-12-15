@@ -16,5 +16,10 @@ namespace SlicerConf
         {
             InitializeComponent();
         }
+
+        private void printersComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
