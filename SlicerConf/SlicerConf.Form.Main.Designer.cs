@@ -40,9 +40,12 @@
             this.FilamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.MaxBuildXTextBox = new System.Windows.Forms.TextBox();
             this.MaxBuildXLabel = new System.Windows.Forms.Label();
+            this.AddImageButton = new System.Windows.Forms.Button();
+            this.PictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PrinterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrinterSettingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FilamentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // PrintersComboBox
@@ -139,11 +142,30 @@
             this.MaxBuildXLabel.TabIndex = 3;
             this.MaxBuildXLabel.Text = "Max Build: X";
             // 
+            // AddImageButton
+            // 
+            this.AddImageButton.Location = new System.Drawing.Point(158, 193);
+            this.AddImageButton.Name = "AddImageButton";
+            this.AddImageButton.Size = new System.Drawing.Size(75, 23);
+            this.AddImageButton.TabIndex = 4;
+            this.AddImageButton.Text = "Add Image";
+            this.AddImageButton.UseVisualStyleBackColor = true;
+            // 
+            // PictureBox
+            // 
+            this.PictureBox.Location = new System.Drawing.Point(281, 165);
+            this.PictureBox.Name = "PictureBox";
+            this.PictureBox.Size = new System.Drawing.Size(132, 134);
+            this.PictureBox.TabIndex = 5;
+            this.PictureBox.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 419);
+            this.Controls.Add(this.PictureBox);
+            this.Controls.Add(this.AddImageButton);
             this.Controls.Add(this.MaxBuildXLabel);
             this.Controls.Add(this.MaxBuildXTextBox);
             this.Controls.Add(this.Filament);
@@ -158,6 +180,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PrinterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrinterSettingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FilamentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,6 +198,8 @@
         private System.Windows.Forms.BindingSource FilamentBindingSource;
         private System.Windows.Forms.TextBox MaxBuildXTextBox;
         private System.Windows.Forms.Label MaxBuildXLabel;
+        private System.Windows.Forms.Button AddImageButton;
+        private System.Windows.Forms.PictureBox PictureBox;
     }
 }
 

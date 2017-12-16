@@ -83,6 +83,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="SlicerConf.Data.Filament.datasource" />
+    <None Include="SlicerConf.Data.Picture.datasource" />
     <None Include="SlicerConf.Data.Printer.datasource" />
     <None Include="SlicerConf.Data.PrinterSetting.datasource" />
     <None Include="SlicerConf.Data.SlicerConfDBModelContainer.datasource" />

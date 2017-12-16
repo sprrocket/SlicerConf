@@ -53,7 +53,9 @@ namespace SlicerConf
             ctx.Filaments.Load();
             ctx.Pictures.Load();
 
-            PrinterBindingSource.DataSource = ctx.Printers.Local.ToBindingList();//The right-hand expression: DbContext<POCO<ObservableList<BindingList
+            //TODO: Add dev note for ObservableList/BindingList usage
+            //The right-hand expression below: DbContext < POCO < ObservableList < BindingList
+            PrinterBindingSource.DataSource = ctx.Printers.Local.ToBindingList();
             FilamentBindingSource.DataSource = ctx.Filaments.Local.ToBindingList();
             //PopulateSettingsComboBox();
             
