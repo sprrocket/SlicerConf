@@ -88,7 +88,7 @@
             // maxBuildXLabel
             // 
             maxBuildXLabel.AutoSize = true;
-            maxBuildXLabel.Location = new System.Drawing.Point(12, 36);
+            maxBuildXLabel.Location = new System.Drawing.Point(22, 42);
             maxBuildXLabel.Name = "maxBuildXLabel";
             maxBuildXLabel.Size = new System.Drawing.Size(66, 13);
             maxBuildXLabel.TabIndex = 9;
@@ -97,7 +97,7 @@
             // maxBuildYLabel
             // 
             maxBuildYLabel.AutoSize = true;
-            maxBuildYLabel.Location = new System.Drawing.Point(12, 62);
+            maxBuildYLabel.Location = new System.Drawing.Point(22, 68);
             maxBuildYLabel.Name = "maxBuildYLabel";
             maxBuildYLabel.Size = new System.Drawing.Size(66, 13);
             maxBuildYLabel.TabIndex = 11;
@@ -106,7 +106,7 @@
             // maxBuildZLabel
             // 
             maxBuildZLabel.AutoSize = true;
-            maxBuildZLabel.Location = new System.Drawing.Point(12, 88);
+            maxBuildZLabel.Location = new System.Drawing.Point(22, 94);
             maxBuildZLabel.Name = "maxBuildZLabel";
             maxBuildZLabel.Size = new System.Drawing.Size(66, 13);
             maxBuildZLabel.TabIndex = 13;
@@ -115,7 +115,7 @@
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(12, 9);
+            nameLabel.Location = new System.Drawing.Point(22, 15);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new System.Drawing.Size(71, 13);
             nameLabel.TabIndex = 15;
@@ -124,7 +124,7 @@
             // bottomShellsLabel
             // 
             bottomShellsLabel.AutoSize = true;
-            bottomShellsLabel.Location = new System.Drawing.Point(271, 36);
+            bottomShellsLabel.Location = new System.Drawing.Point(14, 171);
             bottomShellsLabel.Name = "bottomShellsLabel";
             bottomShellsLabel.Size = new System.Drawing.Size(74, 13);
             bottomShellsLabel.TabIndex = 17;
@@ -133,7 +133,7 @@
             // layerHeightLabel
             // 
             layerHeightLabel.AutoSize = true;
-            layerHeightLabel.Location = new System.Drawing.Point(271, 62);
+            layerHeightLabel.Location = new System.Drawing.Point(14, 197);
             layerHeightLabel.Name = "layerHeightLabel";
             layerHeightLabel.Size = new System.Drawing.Size(70, 13);
             layerHeightLabel.TabIndex = 19;
@@ -142,7 +142,7 @@
             // nameLabel1
             // 
             nameLabel1.AutoSize = true;
-            nameLabel1.Location = new System.Drawing.Point(271, 9);
+            nameLabel1.Location = new System.Drawing.Point(14, 144);
             nameLabel1.Name = "nameLabel1";
             nameLabel1.Size = new System.Drawing.Size(74, 13);
             nameLabel1.TabIndex = 21;
@@ -151,7 +151,7 @@
             // perimetersLabel
             // 
             perimetersLabel.AutoSize = true;
-            perimetersLabel.Location = new System.Drawing.Point(271, 91);
+            perimetersLabel.Location = new System.Drawing.Point(14, 226);
             perimetersLabel.Name = "perimetersLabel";
             perimetersLabel.Size = new System.Drawing.Size(59, 13);
             perimetersLabel.TabIndex = 23;
@@ -160,7 +160,7 @@
             // topShellsLabel
             // 
             topShellsLabel.AutoSize = true;
-            topShellsLabel.Location = new System.Drawing.Point(271, 117);
+            topShellsLabel.Location = new System.Drawing.Point(14, 252);
             topShellsLabel.Name = "topShellsLabel";
             topShellsLabel.Size = new System.Drawing.Size(60, 13);
             topShellsLabel.TabIndex = 25;
@@ -169,7 +169,7 @@
             // heatbedEnabledLabel
             // 
             heatbedEnabledLabel.AutoSize = true;
-            heatbedEnabledLabel.Location = new System.Drawing.Point(531, 38);
+            heatbedEnabledLabel.Location = new System.Drawing.Point(5, 337);
             heatbedEnabledLabel.Name = "heatbedEnabledLabel";
             heatbedEnabledLabel.Size = new System.Drawing.Size(93, 13);
             heatbedEnabledLabel.TabIndex = 27;
@@ -178,7 +178,7 @@
             // heatbedTemperatureLabel
             // 
             heatbedTemperatureLabel.AutoSize = true;
-            heatbedTemperatureLabel.Location = new System.Drawing.Point(531, 66);
+            heatbedTemperatureLabel.Location = new System.Drawing.Point(5, 365);
             heatbedTemperatureLabel.Name = "heatbedTemperatureLabel";
             heatbedTemperatureLabel.Size = new System.Drawing.Size(114, 13);
             heatbedTemperatureLabel.TabIndex = 29;
@@ -187,7 +187,7 @@
             // nameLabel2
             // 
             nameLabel2.AutoSize = true;
-            nameLabel2.Location = new System.Drawing.Point(531, 9);
+            nameLabel2.Location = new System.Drawing.Point(5, 308);
             nameLabel2.Name = "nameLabel2";
             nameLabel2.Size = new System.Drawing.Size(80, 13);
             nameLabel2.TabIndex = 31;
@@ -196,7 +196,7 @@
             // printTemperatureLabel
             // 
             printTemperatureLabel.AutoSize = true;
-            printTemperatureLabel.Location = new System.Drawing.Point(531, 92);
+            printTemperatureLabel.Location = new System.Drawing.Point(5, 391);
             printTemperatureLabel.Name = "printTemperatureLabel";
             printTemperatureLabel.Size = new System.Drawing.Size(94, 13);
             printTemperatureLabel.TabIndex = 33;
@@ -220,25 +220,24 @@
             // 
             // AddImageButton
             // 
-            this.AddImageButton.Image = global::SlicerConf.Properties.Resources.Add_thin_10x_16x;
-            this.AddImageButton.Location = new System.Drawing.Point(277, 392);
+            this.AddImageButton.Image = global::SlicerConf.Properties.Resources.Edit_16x;
+            this.AddImageButton.Location = new System.Drawing.Point(691, 388);
             this.AddImageButton.Name = "AddImageButton";
-            this.AddImageButton.Size = new System.Drawing.Size(20, 20);
+            this.AddImageButton.Size = new System.Drawing.Size(22, 22);
             this.AddImageButton.TabIndex = 4;
             this.AddImageButton.UseVisualStyleBackColor = true;
-            this.AddImageButton.Click += new System.EventHandler(this.AddImageButton_Click);
+            this.AddImageButton.Click += new System.EventHandler(this.EditImageButton_Click);
             // 
             // PictureBox
             // 
             this.PictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.PictureBindingSource, "img", true));
-            this.PictureBox.Location = new System.Drawing.Point(15, 170);
+            this.PictureBox.Location = new System.Drawing.Point(301, 23);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(256, 245);
-            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox.Size = new System.Drawing.Size(384, 387);
+            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBox.TabIndex = 5;
             this.PictureBox.TabStop = false;
-            this.PictureBox.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // PictureBindingSource
             // 
@@ -251,7 +250,7 @@
             this.PrinterAddBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.PrinterAddBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PrinterAddBtn.Image = ((System.Drawing.Image)(resources.GetObject("PrinterAddBtn.Image")));
-            this.PrinterAddBtn.Location = new System.Drawing.Point(211, 6);
+            this.PrinterAddBtn.Location = new System.Drawing.Point(221, 12);
             this.PrinterAddBtn.Name = "PrinterAddBtn";
             this.PrinterAddBtn.Size = new System.Drawing.Size(20, 20);
             this.PrinterAddBtn.TabIndex = 6;
@@ -263,7 +262,7 @@
             this.SettingAddBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.SettingAddBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SettingAddBtn.Image = ((System.Drawing.Image)(resources.GetObject("SettingAddBtn.Image")));
-            this.SettingAddBtn.Location = new System.Drawing.Point(478, 6);
+            this.SettingAddBtn.Location = new System.Drawing.Point(221, 141);
             this.SettingAddBtn.Name = "SettingAddBtn";
             this.SettingAddBtn.Size = new System.Drawing.Size(20, 20);
             this.SettingAddBtn.TabIndex = 6;
@@ -275,7 +274,7 @@
             this.FilamentAddBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.FilamentAddBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FilamentAddBtn.Image = ((System.Drawing.Image)(resources.GetObject("FilamentAddBtn.Image")));
-            this.FilamentAddBtn.Location = new System.Drawing.Point(778, 6);
+            this.FilamentAddBtn.Location = new System.Drawing.Point(247, 305);
             this.FilamentAddBtn.Name = "FilamentAddBtn";
             this.FilamentAddBtn.Size = new System.Drawing.Size(20, 20);
             this.FilamentAddBtn.TabIndex = 6;
@@ -285,7 +284,7 @@
             // maxBuildXTextBox
             // 
             this.maxBuildXTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PrinterBindingSource, "MaxBuildX", true));
-            this.maxBuildXTextBox.Location = new System.Drawing.Point(84, 33);
+            this.maxBuildXTextBox.Location = new System.Drawing.Point(94, 39);
             this.maxBuildXTextBox.Name = "maxBuildXTextBox";
             this.maxBuildXTextBox.Size = new System.Drawing.Size(121, 20);
             this.maxBuildXTextBox.TabIndex = 10;
@@ -293,7 +292,7 @@
             // maxBuildYTextBox
             // 
             this.maxBuildYTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PrinterBindingSource, "MaxBuildY", true));
-            this.maxBuildYTextBox.Location = new System.Drawing.Point(84, 59);
+            this.maxBuildYTextBox.Location = new System.Drawing.Point(94, 65);
             this.maxBuildYTextBox.Name = "maxBuildYTextBox";
             this.maxBuildYTextBox.Size = new System.Drawing.Size(121, 20);
             this.maxBuildYTextBox.TabIndex = 12;
@@ -301,7 +300,7 @@
             // maxBuildZTextBox
             // 
             this.maxBuildZTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PrinterBindingSource, "MaxBuildZ", true));
-            this.maxBuildZTextBox.Location = new System.Drawing.Point(84, 85);
+            this.maxBuildZTextBox.Location = new System.Drawing.Point(94, 91);
             this.maxBuildZTextBox.Name = "maxBuildZTextBox";
             this.maxBuildZTextBox.Size = new System.Drawing.Size(121, 20);
             this.maxBuildZTextBox.TabIndex = 14;
@@ -312,16 +311,15 @@
             this.PrintersComboBox.DisplayMember = "Name";
             this.PrintersComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PrintersComboBox.FormattingEnabled = true;
-            this.PrintersComboBox.Location = new System.Drawing.Point(84, 6);
+            this.PrintersComboBox.Location = new System.Drawing.Point(94, 12);
             this.PrintersComboBox.Name = "PrintersComboBox";
             this.PrintersComboBox.Size = new System.Drawing.Size(121, 21);
             this.PrintersComboBox.TabIndex = 16;
-            this.PrintersComboBox.SelectedIndexChanged += new System.EventHandler(this.PrintersComboBox_SelectedIndexChanged);
             // 
             // bottomShellsTextBox
             // 
             this.bottomShellsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PrinterSettingBindingSource, "BottomShells", true));
-            this.bottomShellsTextBox.Location = new System.Drawing.Point(351, 33);
+            this.bottomShellsTextBox.Location = new System.Drawing.Point(94, 168);
             this.bottomShellsTextBox.Name = "bottomShellsTextBox";
             this.bottomShellsTextBox.Size = new System.Drawing.Size(121, 20);
             this.bottomShellsTextBox.TabIndex = 18;
@@ -329,7 +327,7 @@
             // layerHeightTextBox
             // 
             this.layerHeightTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PrinterSettingBindingSource, "LayerHeight", true));
-            this.layerHeightTextBox.Location = new System.Drawing.Point(351, 59);
+            this.layerHeightTextBox.Location = new System.Drawing.Point(94, 194);
             this.layerHeightTextBox.Name = "layerHeightTextBox";
             this.layerHeightTextBox.Size = new System.Drawing.Size(121, 20);
             this.layerHeightTextBox.TabIndex = 20;
@@ -340,16 +338,15 @@
             this.SettingsComboBox.DisplayMember = "Name";
             this.SettingsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SettingsComboBox.FormattingEnabled = true;
-            this.SettingsComboBox.Location = new System.Drawing.Point(351, 6);
+            this.SettingsComboBox.Location = new System.Drawing.Point(94, 141);
             this.SettingsComboBox.Name = "SettingsComboBox";
             this.SettingsComboBox.Size = new System.Drawing.Size(121, 21);
             this.SettingsComboBox.TabIndex = 22;
-            this.SettingsComboBox.SelectedIndexChanged += new System.EventHandler(this.SettingsComboBox_SelectedIndexChanged);
             // 
             // perimetersTextBox
             // 
             this.perimetersTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PrinterSettingBindingSource, "Perimeters", true));
-            this.perimetersTextBox.Location = new System.Drawing.Point(351, 88);
+            this.perimetersTextBox.Location = new System.Drawing.Point(94, 223);
             this.perimetersTextBox.Name = "perimetersTextBox";
             this.perimetersTextBox.Size = new System.Drawing.Size(121, 20);
             this.perimetersTextBox.TabIndex = 24;
@@ -357,7 +354,7 @@
             // topShellsTextBox
             // 
             this.topShellsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PrinterSettingBindingSource, "TopShells", true));
-            this.topShellsTextBox.Location = new System.Drawing.Point(351, 114);
+            this.topShellsTextBox.Location = new System.Drawing.Point(94, 249);
             this.topShellsTextBox.Name = "topShellsTextBox";
             this.topShellsTextBox.Size = new System.Drawing.Size(121, 20);
             this.topShellsTextBox.TabIndex = 26;
@@ -365,7 +362,7 @@
             // heatbedEnabledCheckBox
             // 
             this.heatbedEnabledCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.FilamentBindingSource, "HeatbedEnabled", true));
-            this.heatbedEnabledCheckBox.Location = new System.Drawing.Point(651, 33);
+            this.heatbedEnabledCheckBox.Location = new System.Drawing.Point(120, 332);
             this.heatbedEnabledCheckBox.Name = "heatbedEnabledCheckBox";
             this.heatbedEnabledCheckBox.Size = new System.Drawing.Size(121, 24);
             this.heatbedEnabledCheckBox.TabIndex = 28;
@@ -374,7 +371,7 @@
             // heatbedTemperatureTextBox
             // 
             this.heatbedTemperatureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.FilamentBindingSource, "HeatbedTemperature", true));
-            this.heatbedTemperatureTextBox.Location = new System.Drawing.Point(651, 63);
+            this.heatbedTemperatureTextBox.Location = new System.Drawing.Point(120, 362);
             this.heatbedTemperatureTextBox.Name = "heatbedTemperatureTextBox";
             this.heatbedTemperatureTextBox.Size = new System.Drawing.Size(121, 20);
             this.heatbedTemperatureTextBox.TabIndex = 30;
@@ -385,16 +382,15 @@
             this.FilamentComboBox.DisplayMember = "Name";
             this.FilamentComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FilamentComboBox.FormattingEnabled = true;
-            this.FilamentComboBox.Location = new System.Drawing.Point(651, 6);
+            this.FilamentComboBox.Location = new System.Drawing.Point(120, 305);
             this.FilamentComboBox.Name = "FilamentComboBox";
             this.FilamentComboBox.Size = new System.Drawing.Size(121, 21);
             this.FilamentComboBox.TabIndex = 32;
-            this.FilamentComboBox.SelectedIndexChanged += new System.EventHandler(this.FilamentComboBox_SelectedIndexChanged);
             // 
             // printTemperatureTextBox
             // 
             this.printTemperatureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.FilamentBindingSource, "PrintTemperature", true));
-            this.printTemperatureTextBox.Location = new System.Drawing.Point(651, 89);
+            this.printTemperatureTextBox.Location = new System.Drawing.Point(120, 388);
             this.printTemperatureTextBox.Name = "printTemperatureTextBox";
             this.printTemperatureTextBox.Size = new System.Drawing.Size(121, 20);
             this.printTemperatureTextBox.TabIndex = 34;
@@ -403,7 +399,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 435);
+            this.ClientSize = new System.Drawing.Size(720, 426);
             this.Controls.Add(heatbedEnabledLabel);
             this.Controls.Add(this.heatbedEnabledCheckBox);
             this.Controls.Add(heatbedTemperatureLabel);
@@ -435,6 +431,7 @@
             this.Controls.Add(this.PrinterAddBtn);
             this.Controls.Add(this.PictureBox);
             this.Controls.Add(this.AddImageButton);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "SlicerConf";
             this.Load += new System.EventHandler(this.MainForm_Load);

@@ -104,9 +104,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SlicerConf.Biz\SlicerConf.Biz.csproj">
+    <ProjectReference Include="..\SlicerConf.Biz\SlicerConf.ImageHelper.csproj">
       <Project>{ba00ec15-94a5-4a84-ae26-6b69b97a6a88}</Project>
-      <Name>SlicerConf.Biz</Name>
+      <Name>SlicerConf.ImageHelper</Name>
     </ProjectReference>
     <ProjectReference Include="..\SlicerConf.Data\SlicerConf.Data.csproj">
       <Project>{e201be6f-4fa1-44fc-a02c-22ddfa91cddf}</Project>
@@ -127,6 +127,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ASX_Edit_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_16x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

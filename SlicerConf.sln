@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlicerConf.Desktop", "SlicerConf\SlicerConf.Desktop.csproj", "{8295F0EE-2E2F-4F18-AEE3-7638ED9B97D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlicerConf.Data", "SlicerConf.Data\SlicerConf.Data.csproj", "{E201BE6F-4FA1-44FC-A02C-22DDFA91CDDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlicerConf.ConsoleApp", "SlicerConf.ConsoleApp\SlicerConf.ConsoleApp.csproj", "{CD51221E-65FB-4778-953E-2EA02CDBD85A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlicerConf.Biz", "SlicerConf.Biz\SlicerConf.Biz.csproj", "{BA00EC15-94A5-4A84-AE26-6B69B97A6A88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlicerConf.ImageHelper", "SlicerConf.Biz\SlicerConf.ImageHelper.csproj", "{BA00EC15-94A5-4A84-AE26-6B69B97A6A88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{E201BE6F-4FA1-44FC-A02C-22DDFA91CDDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E201BE6F-4FA1-44FC-A02C-22DDFA91CDDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E201BE6F-4FA1-44FC-A02C-22DDFA91CDDF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD51221E-65FB-4778-953E-2EA02CDBD85A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD51221E-65FB-4778-953E-2EA02CDBD85A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD51221E-65FB-4778-953E-2EA02CDBD85A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD51221E-65FB-4778-953E-2EA02CDBD85A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA00EC15-94A5-4A84-AE26-6B69B97A6A88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA00EC15-94A5-4A84-AE26-6B69B97A6A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA00EC15-94A5-4A84-AE26-6B69B97A6A88}.Release|Any CPU.ActiveCfg = Release|Any CPU
