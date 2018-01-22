@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
+ * 
+ * This console is for testing purposes only.
+ * Feel free to ignore it :)
+ * 
+ */
 namespace SlicerConf.ConsoleApp
 {
     class Program
