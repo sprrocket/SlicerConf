@@ -17,5 +17,12 @@ namespace SlicerConf.Data
         public int Id { get; set; }
         public string Name { get; set; }
         public byte[] img { get; set; }
+        public int PrinterId { get; set; }
+        public int FilamentId { get; set; }
+        public int PrinterSettingId { get; set; }
+    
+        public virtual Printer Printer { get; set; }
+        public virtual Filament Filament { get; set; }
+        public virtual PrinterSetting PrinterSetting { get; set; }
     }
 }

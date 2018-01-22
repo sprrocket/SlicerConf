@@ -58,11 +58,6 @@
     <Compile Include="AddItemDialog.Designer.cs">
       <DependentUpon>AddItemDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Icons.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Icons.resx</DependentUpon>
-    </Compile>
     <Compile Include="SlicerConf.Form.Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,10 +68,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddItemDialog.resx">
       <DependentUpon>AddItemDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Icons.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Icons.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,6 +121,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Add_thin_10x_16x1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ASX_Edit_grey_16x.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ASX_Edit_grey_16x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

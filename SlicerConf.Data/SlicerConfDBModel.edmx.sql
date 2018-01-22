@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/14/2017 23:34:31
+-- Date Created: 01/22/2018 05:03:59
 -- Generated from EDMX file: D:\SlicerConf\SlicerConf\SlicerConf.Data\SlicerConfDBModel.edmx
 -- --------------------------------------------------
 
@@ -25,17 +25,17 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Printers]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Printers];
-GO
-IF OBJECT_ID(N'[dbo].[PrinterSettings]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PrinterSettings];
-GO
 IF OBJECT_ID(N'[dbo].[Filaments]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Filaments];
 GO
 IF OBJECT_ID(N'[dbo].[Pictures]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Pictures];
+GO
+IF OBJECT_ID(N'[dbo].[Printers]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Printers];
+GO
+IF OBJECT_ID(N'[dbo].[PrinterSettings]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PrinterSettings];
 GO
 
 -- --------------------------------------------------
@@ -70,7 +70,7 @@ CREATE TABLE [dbo].[Filaments] (
     [Name] nvarchar(max)  NOT NULL,
     [PrintTemperature] int  NOT NULL,
     [HeatbedEnabled] bit  NOT NULL,
-    [HeatbedTemperature] int  NOT NULL
+    [HeatbedTemperature] int  NULL
 );
 GO
 
@@ -78,7 +78,10 @@ GO
 CREATE TABLE [dbo].[Pictures] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [img] varbinary(max)  NOT NULL
+    [img] varbinary(max)  NOT NULL,
+    [PrinterId] int  NOT NULL,
+    [FilamentId] int  NOT NULL,
+    [PrinterSettingId] int  NOT NULL
 );
 GO
 
@@ -127,6 +130,51 @@ GO
 CREATE INDEX [IX_FK_PrinterPrinterSetting]
 ON [dbo].[PrinterSettings]
     ([PrinterId]);
+GO
+
+-- Creating foreign key on [PrinterId] in table 'Pictures'
+ALTER TABLE [dbo].[Pictures]
+ADD CONSTRAINT [FK_PrinterPicture]
+    FOREIGN KEY ([PrinterId])
+    REFERENCES [dbo].[Printers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PrinterPicture'
+CREATE INDEX [IX_FK_PrinterPicture]
+ON [dbo].[Pictures]
+    ([PrinterId]);
+GO
+
+-- Creating foreign key on [FilamentId] in table 'Pictures'
+ALTER TABLE [dbo].[Pictures]
+ADD CONSTRAINT [FK_FilamentPicture]
+    FOREIGN KEY ([FilamentId])
+    REFERENCES [dbo].[Filaments]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_FilamentPicture'
+CREATE INDEX [IX_FK_FilamentPicture]
+ON [dbo].[Pictures]
+    ([FilamentId]);
+GO
+
+-- Creating foreign key on [PrinterSettingId] in table 'Pictures'
+ALTER TABLE [dbo].[Pictures]
+ADD CONSTRAINT [FK_PrinterSettingPicture]
+    FOREIGN KEY ([PrinterSettingId])
+    REFERENCES [dbo].[PrinterSettings]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PrinterSettingPicture'
+CREATE INDEX [IX_FK_PrinterSettingPicture]
+ON [dbo].[Pictures]
+    ([PrinterSettingId]);
 GO
 
 -- --------------------------------------------------

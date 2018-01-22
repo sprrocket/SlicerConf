@@ -6,10 +6,13 @@
     <edmx:Diagrams>
       <Diagram DiagramId="9f6eb2f3deec4749a64335bb76ef7e56" Name="Diagram1" >
         <EntityTypeShape EntityType="SlicerConfDBModel.Printer" Width="1.5" PointX="2.75" PointY="1.5" />
-        <EntityTypeShape EntityType="SlicerConfDBModel.PrinterSetting" Width="1.5" PointX="6.375" PointY="3.875" />
-        <EntityTypeShape EntityType="SlicerConfDBModel.Filament" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="SlicerConfDBModel.PrinterSetting" Width="1.5" PointX="4.875" PointY="4.125" />
+        <EntityTypeShape EntityType="SlicerConfDBModel.Filament" Width="1.5" PointX="5.5" PointY="0.75" />
         <EntityTypeShape EntityType="SlicerConfDBModel.Picture" Width="1.5" PointX="8.875" PointY="1.5" />
         <AssociationConnector Association="SlicerConfDBModel.PrinterPrinterSetting" />
+        <AssociationConnector Association="SlicerConfDBModel.PrinterPicture" />
+        <AssociationConnector Association="SlicerConfDBModel.FilamentPicture" />
+        <AssociationConnector Association="SlicerConfDBModel.PrinterSettingPicture" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

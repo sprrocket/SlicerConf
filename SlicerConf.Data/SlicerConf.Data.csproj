@@ -126,7 +126,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="NEWSlicerConfDBModel.edmx.sql" />
     <Content Include="SlicerConfDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SlicerConfDB.Context.cs</LastGenOutput>
@@ -137,6 +136,7 @@
       <LastGenOutput>SlicerConfDB.cs</LastGenOutput>
       <DependentUpon>SlicerConfDBModel.edmx</DependentUpon>
     </Content>
+    <Content Include="SlicerConfDBModel.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

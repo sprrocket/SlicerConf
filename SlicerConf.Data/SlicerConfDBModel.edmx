@@ -4,70 +4,121 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SlicerConfDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Filaments">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="PrintTemperature" Type="int" Nullable="false" />
-          <Property Name="HeatbedEnabled" Type="bit" Nullable="false" />
-          <Property Name="HeatbedTemperature" Type="int" />
-        </EntityType>
-        <EntityType Name="Pictures">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="img" Type="varbinary(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Printers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="MaxBuildX" Type="int" Nullable="false" />
-          <Property Name="MaxBuildY" Type="int" Nullable="false" />
-          <Property Name="MaxBuildZ" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PrinterSettings">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="LayerHeight" Type="float" Nullable="false" />
-          <Property Name="Perimeters" Type="int" Nullable="false" />
-          <Property Name="TopShells" Type="int" Nullable="false" />
-          <Property Name="BottomShells" Type="int" Nullable="false" />
-          <Property Name="PrinterId" Type="int" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_PrinterPrinterSetting">
-          <End Role="Printers" Type="Self.Printers" Multiplicity="1" />
-          <End Role="PrinterSettings" Type="Self.PrinterSettings" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Printers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PrinterSettings">
-              <PropertyRef Name="PrinterId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="SlicerConfDBModelStoreContainer">
-          <EntitySet Name="Filaments" EntityType="Self.Filaments" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Pictures" EntityType="Self.Pictures" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Printers" EntityType="Self.Printers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PrinterSettings" EntityType="Self.PrinterSettings" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_PrinterPrinterSetting" Association="Self.FK_PrinterPrinterSetting">
-            <End Role="Printers" EntitySet="Printers" />
-            <End Role="PrinterSettings" EntitySet="PrinterSettings" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="SlicerConfDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SlicerConfDBModelStoreContainer">
+    <EntitySet Name="Printers" EntityType="SlicerConfDBModel.Store.Printers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PrinterSettings" EntityType="SlicerConfDBModel.Store.PrinterSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Filaments" EntityType="SlicerConfDBModel.Store.Filaments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pictures" EntityType="SlicerConfDBModel.Store.Pictures" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PrinterPrinterSetting" Association="SlicerConfDBModel.Store.PrinterPrinterSetting">
+      <End Role="Printer" EntitySet="Printers" />
+      <End Role="PrinterSetting" EntitySet="PrinterSettings" />
+    </AssociationSet>
+    <AssociationSet Name="PrinterPicture" Association="SlicerConfDBModel.Store.PrinterPicture">
+      <End Role="Printer" EntitySet="Printers" />
+      <End Role="Picture" EntitySet="Pictures" />
+    </AssociationSet>
+    <AssociationSet Name="FilamentPicture" Association="SlicerConfDBModel.Store.FilamentPicture">
+      <End Role="Filament" EntitySet="Filaments" />
+      <End Role="Picture" EntitySet="Pictures" />
+    </AssociationSet>
+    <AssociationSet Name="PrinterSettingPicture" Association="SlicerConfDBModel.Store.PrinterSettingPicture">
+      <End Role="PrinterSetting" EntitySet="PrinterSettings" />
+      <End Role="Picture" EntitySet="Pictures" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Printers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MaxBuildX" Type="int" Nullable="false" />
+    <Property Name="MaxBuildY" Type="int" Nullable="false" />
+    <Property Name="MaxBuildZ" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PrinterSettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LayerHeight" Type="float" Nullable="false" />
+    <Property Name="Perimeters" Type="int" Nullable="false" />
+    <Property Name="TopShells" Type="int" Nullable="false" />
+    <Property Name="BottomShells" Type="int" Nullable="false" />
+    <Property Name="PrinterId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Filaments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrintTemperature" Type="int" Nullable="false" />
+    <Property Name="HeatbedEnabled" Type="bit" Nullable="false" />
+    <Property Name="HeatbedTemperature" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Pictures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="img" Type="varbinary(max)" Nullable="false" />
+    <Property Name="PrinterId" Type="int" Nullable="false" />
+    <Property Name="FilamentId" Type="int" Nullable="false" />
+    <Property Name="PrinterSettingId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PrinterPrinterSetting">
+    <End Role="Printer" Type="SlicerConfDBModel.Store.Printers" Multiplicity="1" />
+    <End Role="PrinterSetting" Type="SlicerConfDBModel.Store.PrinterSettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Printer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrinterSetting">
+        <PropertyRef Name="PrinterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrinterPicture">
+    <End Role="Printer" Type="SlicerConfDBModel.Store.Printers" Multiplicity="1" />
+    <End Role="Picture" Type="SlicerConfDBModel.Store.Pictures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Printer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Picture">
+        <PropertyRef Name="PrinterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FilamentPicture">
+    <End Role="Filament" Type="SlicerConfDBModel.Store.Filaments" Multiplicity="1" />
+    <End Role="Picture" Type="SlicerConfDBModel.Store.Pictures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filament">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Picture">
+        <PropertyRef Name="FilamentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrinterSettingPicture">
+    <End Role="PrinterSetting" Type="SlicerConfDBModel.Store.PrinterSettings" Multiplicity="1" />
+    <End Role="Picture" Type="SlicerConfDBModel.Store.Pictures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrinterSetting">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Picture">
+        <PropertyRef Name="PrinterSettingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SlicerConfDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -79,6 +130,18 @@
           <AssociationSet Name="PrinterPrinterSetting" Association="SlicerConfDBModel.PrinterPrinterSetting">
             <End Role="Printer" EntitySet="Printers" />
             <End Role="PrinterSetting" EntitySet="PrinterSettings" />
+          </AssociationSet>
+          <AssociationSet Name="PrinterPicture" Association="SlicerConfDBModel.PrinterPicture">
+            <End Role="Printer" EntitySet="Printers" />
+            <End Role="Picture" EntitySet="Pictures" />
+          </AssociationSet>
+          <AssociationSet Name="FilamentPicture" Association="SlicerConfDBModel.FilamentPicture">
+            <End Role="Filament" EntitySet="Filaments" />
+            <End Role="Picture" EntitySet="Pictures" />
+          </AssociationSet>
+          <AssociationSet Name="PrinterSettingPicture" Association="SlicerConfDBModel.PrinterSettingPicture">
+            <End Role="PrinterSetting" EntitySet="PrinterSettings" />
+            <End Role="Picture" EntitySet="Pictures" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Printer">
@@ -122,6 +185,12 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="img" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Printer" Relationship="SlicerConfDBModel.PrinterPicture" FromRole="Picture" ToRole="Printer" />
+          <Property Name="PrinterId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Filament" Relationship="SlicerConfDBModel.FilamentPicture" FromRole="Picture" ToRole="Filament" />
+          <Property Name="FilamentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PrinterSetting" Relationship="SlicerConfDBModel.PrinterSettingPicture" FromRole="Picture" ToRole="PrinterSetting" />
+          <Property Name="PrinterSettingId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="PrinterPrinterSetting">
           <End Type="SlicerConfDBModel.Printer" Role="Printer" Multiplicity="1" />
@@ -132,6 +201,42 @@
             </Principal>
             <Dependent Role="PrinterSetting">
               <PropertyRef Name="PrinterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PrinterPicture">
+          <End Type="SlicerConfDBModel.Printer" Role="Printer" Multiplicity="1" />
+          <End Type="SlicerConfDBModel.Picture" Role="Picture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Printer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Picture">
+              <PropertyRef Name="PrinterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FilamentPicture">
+          <End Type="SlicerConfDBModel.Filament" Role="Filament" Multiplicity="1" />
+          <End Type="SlicerConfDBModel.Picture" Role="Picture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filament">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Picture">
+              <PropertyRef Name="FilamentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PrinterSettingPicture">
+          <End Type="SlicerConfDBModel.PrinterSetting" Role="PrinterSetting" Multiplicity="1" />
+          <End Type="SlicerConfDBModel.Picture" Role="Picture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrinterSetting">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Picture">
+              <PropertyRef Name="PrinterSettingId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -182,6 +287,9 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="PrinterId" ColumnName="PrinterId" />
+          <ScalarProperty Name="FilamentId" ColumnName="FilamentId" />
+          <ScalarProperty Name="PrinterSettingId" ColumnName="PrinterSettingId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
