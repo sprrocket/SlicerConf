@@ -211,6 +211,7 @@
             // PrinterSettingBindingSource
             // 
             this.PrinterSettingBindingSource.DataSource = typeof(SlicerConf.Data.PrinterSetting);
+            this.PrinterSettingBindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.PrinterSettingBindingSource_AddingNew);
             this.PrinterSettingBindingSource.CurrentChanged += new System.EventHandler(this.PictureBindingSource_CurrentChanged);
             // 
             // FilamentBindingSource

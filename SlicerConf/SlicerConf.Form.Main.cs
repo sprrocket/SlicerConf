@@ -30,18 +30,25 @@ namespace SlicerConf
             PrinterBindingSource.DataSource = ctx.Printers.Local.ToBindingList();
             FilamentBindingSource.DataSource = ctx.Filaments.Local.ToBindingList();
             PictureBindingSource.DataSource = ctx.Pictures.Local.ToBindingList();
-
-
         }
 
-        private void PrinterBindingSource_CurrentChanged(object sender, EventArgs e)
+        public void PopulateSettings()
         {
             PrinterSettingBindingSource.DataSource = (from setting in ctx.PrinterSettings
                                                       where setting.PrinterId == ((Data.Printer)PrinterBindingSource.Current).Id
                                                       select setting).ToList();
         }
 
-        private void PictureBindingSource_CurrentChanged(object sender, EventArgs e)//Called every time the other entries are changed
+        public void PrinterBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            PrinterSettingBindingSource.DataSource = (from setting in ctx.PrinterSettings
+                                                      where setting.PrinterId == ((Data.Printer)PrinterBindingSource.Current).Id
+                                                      select setting).ToList();
+        }
+
+
+
+        public void PictureBindingSource_CurrentChanged(object sender, EventArgs e)//Called every time the other entries are changed
         {
             if (FilamentBindingSource.Current != null && PrinterBindingSource.Current != null && PrinterSettingBindingSource != null)
             {
@@ -58,9 +65,11 @@ namespace SlicerConf
             }
         }
 
-        private void EditImageButton_Click(object sender, EventArgs e)
+        public void EditImageButton_Click(object sender, EventArgs e)
         {
-
+            if (PrinterBindingSource.Current.Equals(null)) { MessageBox.Show("Empty Printer field", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else if (PrinterSettingBindingSource.Current.Equals(null)) { MessageBox.Show("Empty Setting field", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else if (FilamentBindingSource.Current.Equals(null)) { MessageBox.Show("Empty Filament field", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             OpenFileDialog dlg = new OpenFileDialog
             {
                 Title = "Open Image"
@@ -97,14 +106,15 @@ namespace SlicerConf
             }
         }
 
-        private void PrinterAddBtn_Click(object sender, EventArgs e)
+        public void PrinterAddBtn_Click(object sender, EventArgs e)
         {
             AddItemDialog dlg = new AddItemDialog
             {
                 Text = "Add Printer"
             };
             if (dlg.ShowDialog() == DialogResult.OK) {
-                if (!(from printer in ctx.Printers where printer.Name == dlg.NewItemName.Text select printer).Any())
+                if (!(from printer in ctx.Printers where printer.Name == dlg.NewItemName.Text select printer).Any()
+                    && dlg.NewItemName.Text !="")
                 {
                     ctx.Printers.Add(new Data.Printer { Name = dlg.NewItemName.Text });
                     ctx.SaveChanges();
@@ -112,12 +122,12 @@ namespace SlicerConf
                 }
                 else
                 {
-                    MessageBox.Show("Duplicate Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Duplicate/Empty Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void SettingAddBtn_Click(object sender, EventArgs e)
+        public void SettingAddBtn_Click(object sender, EventArgs e)
         {
             AddItemDialog dlg = new AddItemDialog
             {
@@ -125,23 +135,25 @@ namespace SlicerConf
             };
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                if (!(from setting in ctx.PrinterSettings where setting.Name == dlg.NewItemName.Text select setting).Any())
+                if (!(from setting in ctx.PrinterSettings where setting.Name == dlg.NewItemName.Text select setting).Any()
+                    && dlg.NewItemName.Text != "")
                 {
                     ctx.PrinterSettings.Add(new Data.PrinterSetting {
                         Name = dlg.NewItemName.Text,
                         PrinterId = ((Data.Printer)PrinterBindingSource.Current).Id
                     });
                     ctx.SaveChanges();
+                    PopulateSettings();
                     SettingsComboBox.SelectedIndex = SettingsComboBox.FindStringExact(dlg.NewItemName.Text);
                 }
                 else
                 {
-                    MessageBox.Show("Duplicate Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Duplicate/Empty Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void FilamentAddBtn_Click(object sender, EventArgs e)
+        public void FilamentAddBtn_Click(object sender, EventArgs e)
         {
             AddItemDialog dlg = new AddItemDialog
             {
@@ -149,7 +161,8 @@ namespace SlicerConf
             };
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                if (!(from filament in ctx.Filaments where filament.Name == dlg.NewItemName.Text select filament).Any())
+                if (!(from filament in ctx.Filaments where filament.Name == dlg.NewItemName.Text select filament).Any()
+                    && dlg.NewItemName.Text != "")
                 {
                     ctx.Filaments.Add(new Data.Filament
                     {
@@ -160,9 +173,25 @@ namespace SlicerConf
                 }
                 else
                 {
-                    MessageBox.Show("Duplicate Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Duplicate/Empty Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
+        private void PrinterSettingBindingSource_AddingNew(object sender, System.ComponentModel.AddingNewEventArgs e)
+        { 
+            PrinterSettingBindingSource.DataSource = null;
+            PrinterSettingBindingSource.DataSource = (from setting in ctx.PrinterSettings
+                                                      where setting.PrinterId == ((Data.Printer)PrinterBindingSource.Current).Id
+                                                      select setting).ToList();
+        }
     }
+
+        //private void PrinterSettingBindingSource_DataSourceChanged(object sender, EventArgs e)
+        //{
+        //    PrinterSettingBindingSource.DataSource = (from setting in ctx.PrinterSettings
+        //                                              where setting.PrinterId == ((Data.Printer)PrinterBindingSource.Current).Id
+        //                                              select setting).ToList();
+        //}
 }
+
